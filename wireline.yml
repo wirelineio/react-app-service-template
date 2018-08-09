@@ -1,0 +1,5 @@
+handlebars:
+  views: ./hbs
+
+# set the assets URL from the wrl service upload-assets
+assets: <STATIC ASSETS URL HERE>

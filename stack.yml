@@ -1,0 +1,11 @@
+name: react-app-stack
+domain: example.com
+stage: dev
+provider:
+  name: aws
+  region: us-east-1
+stack:
+  my-deployment:
+    deployment:
+      image: 'wrn::react-app-service'
+      version: 0.0.1

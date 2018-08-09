@@ -1,0 +1,25 @@
+name: react-app-service
+platform: nodejs
+buildTool: webpack
+version: 0.0.1
+
+staticAssets:
+  folder: dist/assets
+
+functions:
+  express:
+    handler: handler.express
+    description: Test service.
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
+      - http:
+          path: favicon.ico
+          method: get
+          cors: false
+      - http:
+          path: assets/{path}
+          method: get
+          cors: false
