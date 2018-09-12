@@ -1,34 +1,5 @@
 # React App Service Template
 
-## INTERNAL ONLY
-
-The `darkstar` framework packages are currently internal to the Wireline team; they require private access to the @wirelineio org.
-
-### Private Repos
-
-https://www.npmjs.com/org/wirelineio
-
-~~~~
-npm login                       # NOTE: Must preceed yarn login.
-yarn login
-~~~~
-
-Check auth tokens: `~/.npmrc`
-
-
-### Local Repos
-
-To use local repositories:
-
-~~~~
-cd darkstar
-yarn install
-
-cd darkstar/@wirelineio/sdk
-yarn link
-~~~~
-
-
 ## Setup
 
 ### CLI
@@ -55,7 +26,6 @@ cd <service name>
 
 ```
 yarn install
-yarn link @wirelineio/sdk
 ```
 
 ### Change service.yml and stack.yml
