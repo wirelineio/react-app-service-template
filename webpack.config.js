@@ -9,7 +9,7 @@ const ZipPlugin = require('zip-webpack-plugin');
 module.exports = {
   target: 'node',
 
-  mode: 'develpment',
+  mode: 'development',
 
   stats: 'errors-only',
 

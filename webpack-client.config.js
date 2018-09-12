@@ -11,7 +11,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   target: 'web',
 
-  mode: 'develpment',
+  mode: 'development',
   
   stats: 'errors-only',
 
