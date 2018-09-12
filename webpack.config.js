@@ -7,8 +7,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = {
-
   target: 'node',
+
+  mode: 'develpment',
 
   stats: 'errors-only',
 

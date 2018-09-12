@@ -11,6 +11,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   target: 'web',
 
+  mode: 'develpment',
+  
   stats: 'errors-only',
 
   // Source map shows the original source and line numbers (and works with hot loader).
