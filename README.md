@@ -35,7 +35,7 @@ Edit service.yml and stack.yml and change the service and stack names.
 ## Service Register
 
 ```
-$ yarn build
+$ wire build
 ```
 
 ```
@@ -49,7 +49,7 @@ example.com      react-app-service-template                0.0.1           52cdb
 ## Service Upload Assets
 
 ```
-$ yarn build
+$ wire build
 ```
 
 ```
