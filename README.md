@@ -18,7 +18,7 @@ rm -rf .git
 - using CLI:
 
 ```
-WRL_GITHUB_TOKEN=token wrl create --template="https://github.com/wirelineio/react-app-service-template" --path="<service name>"
+wrl create --template="https://github.com/wirelineio/react-app-service-template" --path="<service name>"
 cd <service name>
 ```
 
