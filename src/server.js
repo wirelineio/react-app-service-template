@@ -4,11 +4,12 @@ import path from 'path';
 import express from 'express';
 import handlebars from 'express-handlebars';
 
-export const init = (app, config) => {
+export const init = (app, context) => {
+  const { config } = context.wireline;
 
   const ENV = {
     VIEWS_DIR: config.handlebars.views,
-    ASSETS: config.assets
+    ASSETS: context.wireline.static_assets_url
   }
 
   const locals = {
@@ -68,16 +69,15 @@ export const init = (app, config) => {
 
   staticRouter.get(/^\/assets\/.*/, function (req, res) {
     let match = req.path.match(/^\/assets(\/.*)/);
-    res.redirect(301, ENV.ASSETS + match[1]);
+    res.redirect(301, `${ENV.ASSETS}${match[1]}`);
   });
 
   staticRouter.get(/^\/favicon.ico/, function (req, res) {
-    res.redirect(301, ENV.ASSETS + req.path);
+    res.redirect(301, `${ENV.ASSETS}${req.path}`);
   });
 
   app.use('/', staticRouter);
   
-
   const appRouter = express.Router();
 
   appRouter.get('/', (req, res) => {

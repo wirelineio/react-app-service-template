@@ -1,6 +1,6 @@
 name: react-app-service
 platform: nodejs
-buildTool: webpack
+buildTool: yarn
 version: 0.0.1
 
 staticAssets:
