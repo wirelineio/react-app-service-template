@@ -5,11 +5,14 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 
 export const init = (app, context) => {
-  const { config } = context.wireline;
+  const { config, static_assets_url } = context.wireline;
+  console.log(' ASSETS:', static_assets_url);
+
+  console.log(' CONTEXT:', context.wireline);
 
   const ENV = {
     VIEWS_DIR: config.handlebars.views,
-    ASSETS: context.wireline.static_assets_url
+    ASSETS: static_assets_url
   }
 
   const locals = {

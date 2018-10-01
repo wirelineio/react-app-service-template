@@ -30,7 +30,7 @@
   },
 
   "dependencies": {
-    "@wirelineio/sdk": "^0.1.0",
+    "@wirelineio/sdk": "^0.1.4",
     "aws-serverless-express": "^3.2.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
@@ -41,7 +41,11 @@
 
   "scripts": {
     "build:server": "webpack",
-    "build:client": "  webpack --config=webpack-client.config.js",
-    "build": "npm run build:server && npm run build:client"
+    "build:client": "webpack --config=webpack-client.config.js",
+    "build": "npm run build:server && npm run build:client",
+
+    "start:local:server": "WRL_CONFIG_PATH=wireline-local.yml sls offline -c",
+    "start:local:client": "webpack-dev-server --config=webpack-client.config.js",
+    "start:local": "concurrently --kill-others-on-fail \"npm run start:local:server\" \"npm run start:local:client\""        
   }
 }
