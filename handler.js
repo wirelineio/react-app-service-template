@@ -1,24 +1,44 @@
 //
 // Copyright 2018 Wireline, Inc.
 //
+import 'source-map-support/register';
 
 import Wireline from '@wirelineio/sdk';
 
-import awsServerlessExpress from 'aws-serverless-express';
-import awsServerlessExpressMiddleware from 'aws-serverless-express/middleware';
-import express from 'express';
+export const index = Wireline.exec(async (event, context, response) => {
 
-import { init } from './src/server';
+  const localConfig = {
+    "rootId": 'ux-root'
+  };
 
-const app = express();
+  response.set('Content-Type', 'text/html');
 
-// Must come first.
-app.use(awsServerlessExpressMiddleware.eventContext());
-const server = awsServerlessExpress.createServer(app);
+  return `<!DOCTYPE>
+    <html>
+    <head>
+      <title>Wireline Github App</title> 
+      <link rel="shortcut icon" href="./favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+    <body>
+      <div id="${ localConfig.rootId }"></div>
+      <script>window.config = ${ JSON.stringify(localConfig) };</script>
+      <script src="./assets/app.js"></script>    
+    </body>
+    </html>
+  `;
 
-module.exports = {
-  express: Wireline.exec(async (event, context) => {
-    init(app, context);
-    awsServerlessExpress.proxy(server, event, context);
-  })
-};
+});
+
+export const proxy = Wireline.exec( async (event, context, response) => {
+  const { static_assets_url } = context.wireline;
+  const match = event.path.match(/^\/assets(\/.*)/);
+  let path = event.path;
+
+  if (match) {
+    path = match[1];
+  }
+
+  response.set('Location', `${static_assets_url}${path}`).status(301).send('');
+
+});

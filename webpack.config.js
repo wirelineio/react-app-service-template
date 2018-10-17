@@ -37,8 +37,7 @@ module.exports = {
 
   plugins: [
     new CopyWebpackPlugin([
-      'wireline.yml',
-      { from: './src/hbs', to: './hbs'  }
+      'wireline.yml'
     ]),
     new ZipPlugin({
       path: '../',

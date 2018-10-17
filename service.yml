@@ -7,19 +7,23 @@ staticAssets:
   folder: dist/assets
 
 functions:
-  express:
-    handler: handler.express
-    description: Test service.
+  index:
+    handler: handler.index
+    description: Index page.
     events:
       - http:
           path: /
           method: get
           cors: true
+  proxy:
+    handler: handler.proxy
+    description: Static assets proxy.
+    events:
       - http:
           path: favicon.ico
           method: get
-          cors: false
+          cors: true
       - http:
           path: assets/{path}
           method: get
-          cors: false
+          cors: true
